@@ -11,7 +11,7 @@ export const projectLinks: ProjectProps[] = [
   {
     name: 'IMAGES',
     link: 'https://github.com/ghosthim/ghost_blog_images',
-    slug: 'spencerwooo/dowww',
+    slug: 'ghosthim/IMAGES',
     icon: BookOpen,
   },
 ]

@@ -11,15 +11,15 @@ const generateRSS = (posts: any) => {
   const feed = new Feed({
     id: domain,
     link: domain,
-    title: "Spencer Woo - Spencer's Blog (＠_＠;)",
+    title: " Youngje Lee - api2u's Blog ",
     description: "Thoughts, ideas, and more.",
-    copyright: `All rights reserved ${year}, Spencer Woo`,
+    copyright: `All rights reserved ${year}, Youngje Lee`,
     image: `${domain}/favicon.png`,
     favicon: `${domain}/favicon.ico`,
     author: {
-      name: 'Spencer Woo',
-      email: 'spencer.wushangbo@gmail.com',
-      link: 'https://spencerwoo.com',
+      name: 'Youngje Lee',
+      email: 'i@api2u.me',
+      link: 'https://api2u.me',
     },
   })
 

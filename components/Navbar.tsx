@@ -35,7 +35,7 @@ const Navbar = () => {
     <header className="flex p-6 text-gray-500 z-50 items-center justify-between dark:text-gray-400">
       <Link href="/">
         <a href="/" className="dark:border-b-gray-700 hover:border-b-gray-500">
-          Spencer
+          API2U
         </a>
       </Link>
       <div className="flex space-x-4 items-center">
