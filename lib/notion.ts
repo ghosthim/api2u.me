@@ -1,7 +1,7 @@
 import { Client } from '@notionhq/client'
 
 const notion = new Client({ auth: process.env.NOTION_KEY })
-const databaseId = process.env.NOTION_DATABASE_ID || '7021cba3b8a04865850473d4037762ad'
+const databaseId = process.env.NOTION_DATABASE_ID || 'c016c0263dd34596b4e281ae8f9c8e85'
 
 export const getDatabase = async (slug?: string) => {
   let dbQuery: any = {

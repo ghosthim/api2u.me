@@ -13,7 +13,7 @@ const Footer = () => {
         >
           CC BY-NC-SA 4.0
         </a>{' '}
-        ©️ 2017 - {new Date().getFullYear()}
+        ©️ 2018 - {new Date().getFullYear()}
       </div>
     </footer>
   )
