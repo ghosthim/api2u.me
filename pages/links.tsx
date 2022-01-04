@@ -7,7 +7,7 @@ import { ExternalLink } from 'react-feather'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 
-import { projectLinks, ProjectProps } from '../config/project'
+import { projectLinks, ProjectProps } from '../config/project' //
 import { socialLinks, LinkProps } from '../config/link'
 
 const fetcher = (url: string) => fetch(url).then(res => res.json())
