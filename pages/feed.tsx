@@ -2,7 +2,7 @@ import { Feed } from 'feed'
 import { GetServerSideProps } from 'next'
 import { getDatabase } from '../lib/notion'
 
-const domain = 'https://spencerwoo.com'
+const domain = 'https://api2u.me'
 const year = new Date().getFullYear()
 
 // Function for generating the RSS feed
