@@ -1,7 +1,2 @@
-<samp><a href="https://spencerwoo.com" target="_blank" rel="noopener noreferrer">spencerwoo.com</a></samp>
-
-personal portfolio powered by **Next.js**.
-
-<br>
-
-<samp>contents licensed under <a href='https://creativecommons.org/licenses/by-nc-sa/4.0/'>CC BY-NC-SA 4.0</a></samp>
+Forked from spencerwooo/spencerwoo.com
+![yunwen1](https://user-images.githubusercontent.com/6022135/148063475-5c8d8f12-2793-468a-8d23-9f0e8f665342.jpg)
