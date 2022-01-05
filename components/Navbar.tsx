@@ -23,7 +23,7 @@ const MenuItemLink = (props: { [x: string]: any; href: any; children: any }) => 
   const { href, children, ...rest } = props
   return (
     <Link href={href}>
-      <a {...rest} className="dark:border-b-gray-700 hover:border-b-gray-500">
+      <a {...rest} >
         {children}
       </a>
     </Link>

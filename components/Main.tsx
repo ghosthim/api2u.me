@@ -14,7 +14,7 @@ const Main = () => {
           priority
         />
       </div>
-      <h1 className="font-bold mb-8 text-2xl text-light-900">Youngje Lee</h1>
+      <h1 className="font-bold mb-8 text-2xl heading-text">Youngje Lee</h1>
 
       <p className="mb-8 text-gray-400">
               Gemologist💎 / Gamer / Geek

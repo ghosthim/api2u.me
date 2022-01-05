@@ -19,7 +19,7 @@ const Publication: NextPage = () => {
       <div className="flex flex-col min-h-screen dark:bg-dark-900">
         <Navbar />
         <main className="container flex flex-col mx-auto flex-1 max-w-3xl px-6">
-          <h1 className="font-bold text-xl mb-8 dark:text-light-900">Publication</h1>
+          <h1 className="font-bold text-xl mb-8 heading-text">Publication</h1>
 
           <p className="mt-12 font-mono text-xs">
             <abbr title="💡 As soon as I start my PhD ...">Not yet. More to come ...</abbr>
