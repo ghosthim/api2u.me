@@ -3,7 +3,16 @@ import Link from 'next/link'
 const Footer = () => {
   return (
     <footer className="text-xs text-center p-6 primary-text">
-      <div>Built with love by Spencer Woo</div>
+      <div>Built by Youngje</div>
+      <div>Designed with love by{' '}
+              <a
+                  href="https://github.com/spencerwooo/spencerwoo.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+              >
+                  Spencer Woo
+              </a>
+          </div>
       <div>
         <a
           href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
