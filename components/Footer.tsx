@@ -3,8 +3,8 @@ import Link from 'next/link'
 const Footer = () => {
   return (
     <footer className="text-xs text-center p-6 primary-text">
-      <div>Built by Youngje</div>
-      <div>Designed with love by{' '}
+      <div>Built with ❤️ by Youngje</div>
+      <div>Designed by{' '}
               <a
                   href="https://github.com/spencerwooo/spencerwoo.com/"
                   target="_blank"
