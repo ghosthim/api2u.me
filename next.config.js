@@ -4,7 +4,7 @@ const WindiCSSWebpackPlugin = require('windicss-webpack-plugin')
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ['s3-us-west-2.amazonaws.com', 's3.us-west-2.amazonaws.com', 'cdn.spencer.felinae98.cn']
+      domains: ['s3-us-west-2.amazonaws.com', 's3.us-west-2.amazonaws.com', 'cdn.spencer.felinae98.cn','giscus.app']
   },
   webpack(config) {
     config.plugins.push(new WindiCSSWebpackPlugin())
