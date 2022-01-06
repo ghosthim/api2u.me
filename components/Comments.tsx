@@ -13,7 +13,7 @@ const Comments = () => {
               data-emit-metadata="1"
               data-theme="preferred_color_scheme"
               data-lang="en"
-              crossorigin="anonymous"
+              crossOrigin="anonymous"
               async>
         </script>
     </div>
