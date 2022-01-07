@@ -1,15 +1,16 @@
-import type { GetServerSideProps, GetStaticProps, NextPage } from 'next'
+// INITIAL
+import type { GetStaticProps, NextPage } from 'next'
 import { Fragment } from 'react'
 import { ParsedUrlQuery } from 'querystring'
-
+// NEXT
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-
 import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
+// Notion
 import { renderNotionBlock } from '../../components/NotionBlockRenderer'
-
 import { getDatabase, getPage, getBlocks } from '../../lib/notion'
+// PATH
 import probeImageSize from '../../lib/imaging'
 import Comments from '../../components/Comments'
 import Link from 'next/link'
@@ -26,7 +27,7 @@ const Post: NextPage<{ page: any; blocks: any[] }> = ({ page, blocks }) => {
   return (
     <div>
       <Head>
-              <title>{page.properties.name.title[0].plain_text} - api2u&apos;s Blog</title>
+        <title>{page.properties.name.title[0].plain_text} - Spencer's Blog</title>
         <meta name="description" content="Youngje Lee" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -66,7 +67,7 @@ const Post: NextPage<{ page: any; blocks: any[] }> = ({ page, blocks }) => {
               <BlogCopyright page={page} absoluteLink={`${hostname}/blog/${router.query.slug}`} />
             </div>
 
-            <Link href="/blog" passHref>
+            <Link href="/blog">
               <div className="border rounded cursor-pointer flex border-gray-400/30 mt-4 p-4 items-center justify-between md:-mx-4 hover:(bg-light-200 opacity-80) dark:hover:bg-dark-700 ">
                 <span>cd /blog</span>
                 <ArrowLeft />
@@ -84,18 +85,18 @@ const Post: NextPage<{ page: any; blocks: any[] }> = ({ page, blocks }) => {
   )
 }
 
-// export const getStaticPaths = async () => {
-//   const db = await getDatabase()
-//   return {
-//     paths: db.map((p: any) => ({ params: { slug: p.properties.slug.rich_text[0].text.content } })),
-//     fallback: 'blocking',
-//   }
-// }
+export const getStaticPaths = async () => {
+  const db = await getDatabase()
+  return {
+    paths: db.map((p: any) => ({ params: { slug: p.properties.slug.rich_text[0].text.content } })),
+    fallback: 'blocking',
+  }
+}
 
 interface Props extends ParsedUrlQuery {
   slug: string
 }
-export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { slug } = params as Props
   const db = await getDatabase(slug)
   const post = db[0].id
@@ -136,8 +137,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
       })
   )
 
-  // return { props: { page, blocks: blocksWithChildren }, revalidate: 1 }
-  return { props: { page, blocks: blocksWithChildren } }
+  return { props: { page, blocks: blocksWithChildren }, revalidate: 1 }
 }
 
 export default Post
