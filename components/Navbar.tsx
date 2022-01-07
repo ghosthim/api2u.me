@@ -33,7 +33,7 @@ const MenuItemLink = (props: { [x: string]: any; href: any; children: any }) => 
 const Navbar = () => {
   return (
     <header className="flex p-6 text-gray-500 z-50 items-center justify-between dark:text-gray-400">
-      <Link href="/">
+        <Link href="/" passHref>
         <a href="/" className="dark:border-b-gray-700 hover:border-b-gray-500">
           API2U
         </a>
