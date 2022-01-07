@@ -21,7 +21,7 @@ const Main = () => {
       </p>
 
       <p className="text-gray-400">
-       Hi there! I'm Youngje Lee, also known as api2u in Internet. Studying at the{' '}
+       Hi there! I&aposm Youngje Lee, also known as api2u in Internet. Studying at the{' '}
         <a
           href="https://www.qlu.edu.cn/"
           target="_blank"

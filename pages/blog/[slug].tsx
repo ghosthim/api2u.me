@@ -26,7 +26,7 @@ const Post: NextPage<{ page: any; blocks: any[] }> = ({ page, blocks }) => {
   return (
     <div>
       <Head>
-        <title>{page.properties.name.title[0].plain_text} - api2u's Blog</title>
+        <title>{page.properties.name.title[0].plain_text} - api2u&aposs Blog</title>
         <meta name="description" content="Youngje Lee" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
