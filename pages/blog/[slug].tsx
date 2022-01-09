@@ -1,20 +1,19 @@
-// INITIAL
-import type { GetStaticProps, NextPage } from 'next'
+import type { GetServerSideProps, GetStaticProps, NextPage } from 'next'
 import { Fragment } from 'react'
 import { ParsedUrlQuery } from 'querystring'
-// NEXT
+
 import Head from 'next/head'
 import { useRouter } from 'next/router'
+
 import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
-// Notion
 import { renderNotionBlock } from '../../components/NotionBlockRenderer'
+
 import { getDatabase, getPage, getBlocks } from '../../lib/notion'
-// PATH
 import probeImageSize from '../../lib/imaging'
 import Comments from '../../components/Comments'
 import Link from 'next/link'
-import { ArrowLeft } from 'react-feather'
+import { ArrowLeft, Bookmark, MessageCircle } from 'react-feather'
 import BlogCopyright from '../../components/BlogCopyright'
 import BlogToc from '../../components/BlogToc'
 
@@ -27,20 +26,19 @@ const Post: NextPage<{ page: any; blocks: any[] }> = ({ page, blocks }) => {
   return (
     <div>
       <Head>
-       <title>{page.properties.name.title[0].plain_text} - api2u&apos;s Blog</title>
+        <title>{page.properties.name.title[0].plain_text} - api2u&apos;s Blog</title>
         <meta name="description" content="Youngje Lee" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-        <link rel="manifest" href="/site.webmanifest" />
       </Head>
 
       <div className="flex flex-col min-h-screen dark:bg-dark-900">
         <Navbar />
 
-        <main className="container mx-auto max-w-3xl xl:max-w-6xl gap-8 px-6 grid grid-cols-10 relative">
-          <div className="flex flex-col col-span-10 xl:col-span-7">
+        <main className="container mx-auto max-w-3xl lg:max-w-5xl gap-8 px-6 grid grid-cols-10 relative">
+          <div className="flex flex-col col-span-10 lg:col-span-7">
             <div className="rounded border-gray-400/30 -mx-4 p-4 md:border">
               <h1 className="flex space-x-2 text-xl mb-2 justify-between">
                 <span className="font-bold">{page.properties.name.title[0].plain_text}</span>
@@ -53,10 +51,16 @@ const Post: NextPage<{ page: any; blocks: any[] }> = ({ page, blocks }) => {
                   <span key={person.name}>{person.name.toLowerCase()}</span>
                 ))}
                 <span>·</span>
-                <span>{page.properties.tag.select.name.toLowerCase()}</span>
+                <div className="inline-flex items-center space-x-1">
+                  <Bookmark size={18} />
+                  <span>{page.properties.tag.select.name.toLowerCase()}</span>
+                </div>
                 <span>·</span>
-                <Link href="#comments-section">
-                  <a>comments</a>
+                <Link href="#comments-section" passHref>
+                  <div className="inline-flex items-center space-x-1 cursor-pointer">
+                    <MessageCircle size={18} />
+                    <a>comments</a>
+                  </div>
                 </Link>
               </div>
 
@@ -67,7 +71,7 @@ const Post: NextPage<{ page: any; blocks: any[] }> = ({ page, blocks }) => {
               <BlogCopyright page={page} absoluteLink={`${hostname}/blog/${router.query.slug}`} />
             </div>
 
-            <Link href="/blog">
+            <Link href="/blog" passHref>
               <div className="border rounded cursor-pointer flex border-gray-400/30 mt-4 p-4 items-center justify-between md:-mx-4 hover:(bg-light-200 opacity-80) dark:hover:bg-dark-700 ">
                 <span>cd /blog</span>
                 <ArrowLeft />
@@ -85,18 +89,18 @@ const Post: NextPage<{ page: any; blocks: any[] }> = ({ page, blocks }) => {
   )
 }
 
-export const getStaticPaths = async () => {
-  const db = await getDatabase()
-  return {
-    paths: db.map((p: any) => ({ params: { slug: p.properties.slug.rich_text[0].text.content } })),
-    fallback: 'blocking',
-  }
-}
+// export const getStaticPaths = async () => {
+//   const db = await getDatabase()
+//   return {
+//     paths: db.map((p: any) => ({ params: { slug: p.properties.slug.rich_text[0].text.content } })),
+//     fallback: 'blocking',
+//   }
+// }
 
 interface Props extends ParsedUrlQuery {
   slug: string
 }
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const { slug } = params as Props
   const db = await getDatabase(slug)
   const post = db[0].id
@@ -137,7 +141,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       })
   )
 
-  return { props: { page, blocks: blocksWithChildren }, revalidate: 1 }
+  // return { props: { page, blocks: blocksWithChildren }, revalidate: 1 }
+  return { props: { page, blocks: blocksWithChildren } }
 }
 
 export default Post
