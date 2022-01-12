@@ -25,14 +25,14 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <ThemeProvider attribute="class">
-      <Script strategy="lazyOnload" src="https://www.googletagmanager.com/gtag/js?id=G-9B8G51C2XD" />
+      <Script strategy="lazyOnload" src="https://www.googletagmanager.com/gtag/js?id=G-TMNY799HKC" />
       <Script id="ga-analytics">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){window.dataLayer.push(arguments);}
           gtag('js', new Date());
 
-          gtag('config', 'G-9B8G51C2XD');
+          gtag('config', 'G-TMNY799HKC');
         `}
       </Script>
 
